@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Fons Latens</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2312171A'/%3E%3Cg transform='translate%286 6%29'%3E%3Cpath d='M20 1H0V3.45H20Z' fill='%23F2F4F3'/%3E%3Cpath d='M20 5.09H0V10H20Z' fill='%23F2F4F3'/%3E%3Cpath d='M20 11.64H0V13.27H20Z' fill='%23FF6A1A'/%3E%3Cpath d='M20 14.91H0V19H20Z' fill='%23F2F4F3'/%3E%3C/g%3E%3C/svg%3E">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="#top" aria-label="Fons Latens">
+      <svg class="logo-svg" viewBox="0 0 229 20" fill="none" aria-hidden="true"><path d="M20 1H0V3.45455H20V1Z" fill="currentColor"/><path d="M20 5.09091H0V10H20V5.09091Z" fill="currentColor"/><path class="src" d="M20 11.6364H0V13.2727H20V11.6364Z"/><path d="M20 14.9091H0V19H20V14.9091Z" fill="currentColor"/><path d="M36.698 9.496H48.622V12.686H36.698V9.496ZM48.996 2.5V5.712H36.742L38.634 3.798V19H34.894V2.5H48.996ZM60.5915 19.33C58.6702 19.33 56.9835 18.9707 55.5315 18.252C54.0942 17.5333 52.9722 16.536 52.1655 15.26C51.3588 13.9693 50.9555 12.466 50.9555 10.75C50.9555 9.034 51.3588 7.538 52.1655 6.262C52.9722 4.97133 54.0942 3.96667 55.5315 3.248C56.9835 2.52933 58.6702 2.17 60.5915 2.17C62.5128 2.17 64.1922 2.52933 65.6295 3.248C67.0815 3.96667 68.2108 4.97133 69.0175 6.262C69.8242 7.538 70.2275 9.034 70.2275 10.75C70.2275 12.466 69.8242 13.9693 69.0175 15.26C68.2108 16.536 67.0815 17.5333 65.6295 18.252C64.1922 18.9707 62.5128 19.33 60.5915 19.33ZM60.5915 16.008C61.7942 16.008 62.8282 15.7953 63.6935 15.37C64.5735 14.9447 65.2482 14.336 65.7175 13.544C66.2015 12.752 66.4435 11.8207 66.4435 10.75C66.4435 9.67933 66.2015 8.748 65.7175 7.956C65.2482 7.164 64.5735 6.55533 63.6935 6.13C62.8282 5.70467 61.7942 5.492 60.5915 5.492C59.4035 5.492 58.3695 5.70467 57.4895 6.13C56.6095 6.55533 55.9275 7.164 55.4435 7.956C54.9742 8.748 54.7395 9.67933 54.7395 10.75C54.7395 11.8207 54.9742 12.752 55.4435 13.544C55.9275 14.336 56.6095 14.9447 57.4895 15.37C58.3695 15.7953 59.4035 16.008 60.5915 16.008ZM88.5327 16.536L87.2347 16.734V2.5H90.8647V19H86.1347L75.5747 4.766L76.8507 4.568V19H73.2427V2.5H78.0827L88.5327 16.536ZM93.7929 13.61H97.5769C97.6649 14.1673 97.9069 14.6587 98.3029 15.084C98.7136 15.4947 99.2563 15.8173 99.9309 16.052C100.62 16.272 101.412 16.382 102.307 16.382C103.612 16.382 104.639 16.1987 105.387 15.832C106.15 15.4507 106.531 14.9227 106.531 14.248C106.531 13.72 106.311 13.3167 105.871 13.038C105.446 12.7447 104.646 12.532 103.473 12.4L100.151 12.026C98.0096 11.7913 96.4549 11.2927 95.4869 10.53C94.5336 9.75267 94.0569 8.67467 94.0569 7.296C94.0569 6.21067 94.3723 5.28667 95.0029 4.524C95.6483 3.76133 96.5503 3.182 97.7089 2.786C98.8676 2.37533 100.232 2.17 101.801 2.17C103.326 2.17 104.683 2.39733 105.871 2.852C107.059 3.292 108.005 3.91533 108.709 4.722C109.413 5.514 109.794 6.44533 109.853 7.516H106.069C105.996 7.032 105.776 6.614 105.409 6.262C105.057 5.89533 104.566 5.61667 103.935 5.426C103.304 5.22067 102.564 5.118 101.713 5.118C100.525 5.118 99.5789 5.294 98.8749 5.646C98.1709 5.998 97.8189 6.49667 97.8189 7.142C97.8189 7.64067 98.0243 8.02933 98.4349 8.308C98.8603 8.572 99.6009 8.77 100.657 8.902L104.111 9.32C105.636 9.48133 106.846 9.74533 107.741 10.112C108.65 10.464 109.296 10.9407 109.677 11.542C110.073 12.1433 110.271 12.906 110.271 13.83C110.271 14.93 109.934 15.898 109.259 16.734C108.599 17.5553 107.668 18.1933 106.465 18.648C105.262 19.1027 103.854 19.33 102.241 19.33C100.598 19.33 99.1536 19.0953 97.9069 18.626C96.6603 18.142 95.6776 17.4747 94.9589 16.624C94.2403 15.7587 93.8516 14.754 93.7929 13.61ZM123.033 2.5V17.35L121.339 15.7H133.725V19H119.293V2.5H123.033ZM138.961 15.524V12.488H150.401V15.524H138.961ZM147.167 2.5L154.889 19H150.907L144.153 4.018H145.385L138.631 19H134.649L142.371 2.5H147.167ZM159.613 4.172H163.331V19H159.613V4.172ZM153.035 2.5H169.887V5.8H153.035V2.5ZM186.052 9.32V12.18H174.238V9.32H186.052ZM176.746 10.75L175.646 17.746L174.018 15.898H186.734V19H171.884L173.16 10.75L171.884 2.5H186.624V5.602H174.018L175.646 3.754L176.746 10.75ZM205.308 16.536L204.01 16.734V2.5H207.64V19H202.91L192.35 4.766L193.626 4.568V19H190.018V2.5H194.858L205.308 16.536ZM210.568 13.61H214.352C214.44 14.1673 214.682 14.6587 215.078 15.084C215.489 15.4947 216.032 15.8173 216.706 16.052C217.396 16.272 218.188 16.382 219.082 16.382C220.388 16.382 221.414 16.1987 222.162 15.832C222.925 15.4507 223.306 14.9227 223.306 14.248C223.306 13.72 223.086 13.3167 222.646 13.038C222.221 12.7447 221.422 12.532 220.248 12.4L216.926 12.026C214.785 11.7913 213.23 11.2927 212.262 10.53C211.309 9.75267 210.832 8.67467 210.832 7.296C210.832 6.21067 211.148 5.28667 211.778 4.524C212.424 3.76133 213.326 3.182 214.484 2.786C215.643 2.37533 217.007 2.17 218.576 2.17C220.102 2.17 221.458 2.39733 222.646 2.852C223.834 3.292 224.78 3.91533 225.484 4.722C226.188 5.514 226.57 6.44533 226.628 7.516H222.844C222.771 7.032 222.551 6.614 222.184 6.262C221.832 5.89533 221.341 5.61667 220.71 5.426C220.08 5.22067 219.339 5.118 218.488 5.118C217.3 5.118 216.354 5.294 215.65 5.646C214.946 5.998 214.594 6.49667 214.594 7.142C214.594 7.64067 214.8 8.02933 215.21 8.308C215.636 8.572 216.376 8.77 217.432 8.902L220.886 9.32C222.412 9.48133 223.622 9.74533 224.516 10.112C225.426 10.464 226.071 10.9407 226.452 11.542C226.848 12.1433 227.046 12.906 227.046 13.83C227.046 14.93 226.709 15.898 226.034 16.734C225.374 17.5553 224.443 18.1933 223.24 18.648C222.038 19.1027 220.63 19.33 219.016 19.33C217.374 19.33 215.929 19.0953 214.682 18.626C213.436 18.142 212.453 17.4747 211.734 16.624C211.016 15.7587 210.627 14.754 210.568 13.61Z" fill="currentColor"/></svg><span>Natural Hydrogen &amp; Helium</span>
+    </a>
+    <div class="hdr-r">
+      <div class="ctrl">
+        <button type="button" class="theme-btn" id="theme-btn" aria-label="Switch theme">
+          <svg class="moon" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 10.2A6 6 0 0 1 5.8 2.5a6 6 0 1 0 7.7 7.7Z" stroke="currentColor" stroke-width="1.2"/></svg>
+          <svg class="sun" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.2"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M3 13l1.4-1.4M11.6 4.4 13 3" stroke="currentColor" stroke-width="1.2"/></svg>
+          <span class="t" id="theme-label">DARK</span>
+        </button>
+      </div>
+      <div class="ctrl lang" role="group" aria-label="Language">
+        <button type="button" id="lang-en" aria-pressed="true">EN</button>
+        <button type="button" id="lang-ru" aria-pressed="false">RU</button>
+      </div>
+      <div class="ctrl menu-btn"><button type="button" id="menu-btn" aria-expanded="false" aria-controls="menu"><span class="burger" aria-hidden="true"><i></i><i></i></span><span class="en">Menu</span><span class="ru">Меню</span></button></div>
+      <nav class="pages-menu" id="menu" aria-label="Pages" hidden>
+        <p class="eyebrow"><span class="en">Pages</span><span class="ru">Страницы</span></p>
+        <a href="#top" data-page="home"><span class="n">00</span><span><span class="en">Home</span><span class="ru">Главная</span><small>Fons Latens · Natural Hydrogen &amp; Helium</small></span></a>
+        <a href="#exploration" data-page="exploration"><span class="n">01</span><span><span class="en">Exploration &amp; production</span><span class="ru">Разведка и добыча</span><small>Capital · <span class="en">sites, data, teams</span><span class="ru">участки, данные, команды</span></small></span></a>
+        <a href="#equipment" data-page="equipment"><span class="n">02</span><span><span class="en">Equipment, storage &amp; logistics</span><span class="ru">Оборудование, хранение и логистика</span><small>Capital · <span class="en">technologies &amp; services</span><span class="ru">технологии и сервисы</span></small></span></a>
+        <a href="#researchers" data-page="researchers"><span class="n">03</span><span><span class="en">Research teams</span><span class="ru">Научные команды</span><small>Research · <span class="en">labs &amp; scientists</span><span class="ru">лаборатории и учёные</span></small></span></a>
+        <a href="#news" data-page="news"><span class="n">04</span><span><span class="en">News</span><span class="ru">Новости</span><small><span class="en">Discoveries, contractors, partners</span><span class="ru">Открытия, подрядчики, партнёры</span></small></span></a>
+      </nav>
+    </div>
+  </div>
+  <nav class="secnav" id="secnav" aria-label="Sections">
+    <div class="secnav-in">
+      <a href="#problem" data-spy="problem"><span class="en">Problem</span><span class="ru">Проблема</span></a>
+      <a href="#why" data-spy="why"><span class="en">Why now</span><span class="ru">Почему сейчас</span></a>
+      <a href="#what" data-spy="what"><span class="en">What we do</span><span class="ru">Что мы делаем</span></a>
+      <a href="#how" data-spy="how"><span class="en">How it works</span><span class="ru">Как это работает</span></a>
+      <a href="#evidence" data-spy="evidence"><span class="en">Evidence</span><span class="ru">Доказательность</span></a>
+      <a href="#directions" data-spy="directions"><span class="en">Directions</span><span class="ru">Направления</span></a>
+      <a href="#who" data-spy="who"><span class="en">Partners</span><span class="ru">Партнёрам</span></a>
+      <a href="#ways" data-spy="ways"><span class="en">Formats</span><span class="ru">Форматы</span></a>
+      <a href="#now" data-spy="now"><span class="en">Stage</span><span class="ru">Стадия</span></a>
+      <a href="#faq" data-spy="faq">FAQ</a>
+      <a href="#contact" data-spy="contact"><span class="en">Contact</span><span class="ru">Связаться</span></a>
+    </div>
+  </nav>
+  <div class="progress" id="progress"></div>
+</header>
+
+<div class="page">
+<div class="frame">
+<main id="top">
+
+<!-- 01 HERO -->
+<section class="hero" id="hero">
+  <canvas id="strata" aria-hidden="true"></canvas>
+  <div class="hero-mask" aria-hidden="true"></div>
+  <div class="ch" id="chx"></div><div class="ch" id="chy"></div>
+  <div class="probe" id="probe" aria-hidden="true"><div class="dotc"></div><div class="box" id="probe-box"></div></div>
+  <div class="hero-body in">
+    <p class="eyebrow">Fons Latens · Natural Hydrogen &amp; Helium</p>
+    <h1 class="display"><span class="ru">Природный водород и&nbsp;гелий</span><span class="en">Natural hydrogen and&nbsp;helium</span></h1>
+    <p class="h1-sub"><i></i><span><span class="ru">От геологической гипотезы к&nbsp;проверенному проекту</span><span class="en">From geological hypothesis to&nbsp;validated project</span></span></p>
+    <p class="lead"><span class="ru">Мы создаём платформу, которая соединяет геологические данные, научные исследования и инвестиционный подход к природному водороду и гелию.</span><span class="en">We are building a platform that connects subsurface data, scientific research and an investment approach to natural hydrogen and helium.</span></p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#contact"><span class="ru">Обсудить сотрудничество</span><span class="en">Discuss a partnership</span></a>
+      <a class="btn" href="#what"><span class="ru">Наш подход</span><span class="en">Our approach</span><span class="arr">→</span></a>
+    </div>
+    <p class="hstage"><i class="dotp"></i><span><b><span class="ru">Текущая стадия: формирование.</span><span class="en">Current stage: formation.</span></b><span class="ru">Мы собираем исследовательскую программу, команду и первые партнёрства.</span><span class="en">We are assembling the research programme, the team and the first partnerships.</span></span></p>
+  </div>
+  <p class="hint" id="hint"><span class="ru">Наведите курсор на разрез</span><span class="en">Move across the section to probe</span></p>
+  <div class="hero-foot">
+    <a href="#directions" data-dir="0"><span><small>/CAPITAL</small><span class="ru">Капитал для разведки недр</span><span class="en">Capital for exploration</span></span><span class="arr">→</span></a>
+    <a href="#directions" data-dir="1"><span><small>/RESEARCH</small><span class="ru">От вопроса к измерению</span><span class="en">From question to measurement</span></span><span class="arr">→</span></a>
+    <a href="#news"><span><small>/NEWS</small><span class="ru">Что происходит в недрах</span><span class="en">What happens underground</span></span><span class="arr">→</span></a>
+    <a href="#directions" data-dir="3"><span><small>/FORUM</small><span class="ru">Наука, капитал, индустрия</span><span class="en">Science, capital, industry</span></span><span class="arr">→</span></a>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 02 PROBLEM -->
+<section class="sec in" id="problem">
+  <div class="sec-top"><div class="l"><b>02</b><span class="ru">Проблема</span><span class="en">The problem</span></div><i class="chk"></i></div>
+  <div class="sec-head">
+    <h2 class="display"><span class="ru">Новый ресурс. Старая проблема: заявлений больше, чем доказательств.</span><span class="en">A new resource. An old problem: more announcements than evidence.</span></h2>
+    <p class="lead"><span class="ru">Природный водород привлекает серьёзный капитал и внимание. Но за пределами одного небольшого месторождения в Мали никто пока не показал, что его можно добывать коммерчески и в масштабе. Между многообещающей идеей и работающим проектом — длинная цепочка измерений, испытаний и решений, и большая её часть пока отсутствует.</span><span class="en">Natural hydrogen attracts serious capital and attention. Yet outside a single small field in Mali, no one has yet shown that it can be produced commercially at scale. Between a promising idea and a working project lies a long chain of measurements, tests and decisions — and most of it is still missing.</span></p>
+  </div>
+  <div class="pains corners">
+    <div class="pain"><span class="who"><i></i><span class="ru">Инвесторам</span><span class="en">For investors</span></span>
+      <p><span class="ru">Трудно отличить реальный сигнал от сильного пресс-релиза.</span><span class="en">It is hard to tell a real signal from a strong press release.</span><b><span class="ru">Водород в пробе — не месторождение. Геофизическая аномалия — не водород.</span><span class="en">Hydrogen in a sample is not a deposit. A geophysical anomaly is not hydrogen.</span></b></p></div>
+    <div class="pain"><span class="who"><i></i><span class="ru">Учёным</span><span class="en">For scientists</span></span>
+      <p><span class="ru">Данные лежат в архивах и корпоративных ящиках, а путь от гипотезы к полевым работам неясен.</span><span class="en">The data sits in archives and corporate drawers, and the route from a hypothesis to fieldwork is unclear.</span></p></div>
+    <div class="pain"><span class="who"><i></i><span class="ru">Владельцам данных и активов</span><span class="en">For owners of data, wells and services</span></span>
+      <p><span class="ru">Активы, которые могут быть важны для H₂ и He, не имеют партнёра, который бы их проверил.</span><span class="en">Assets that may matter for H₂ and He have no partner to test them.</span></p></div>
+    <div class="pain"><span class="who"><i></i><span class="ru">Читателям</span><span class="en">For readers</span></span>
+      <p><span class="ru">Отрасль полна цифр без дат и утверждений без источников.</span><span class="en">The field is full of numbers without dates and claims without sources.</span></p></div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 03 WHY NOW -->
+<section class="sec in" id="why">
+  <div class="sec-top"><div class="l"><b>03</b><span class="ru">Почему сейчас</span><span class="en">Why now</span></div><i class="chk"></i></div>
+  <div class="signals corners">
+    <div class="intro">
+      <div class="ring" aria-hidden="true"></div>
+      <h2 class="display"><span class="ru">Спрос есть. Вопрос в том, где ресурс реален.</span><span class="en">The demand exists. The question is where the resource is real.</span></h2>
+      <p class="lead"><span class="ru">Пять фактов о рынке. У каждого — источник; нажмите, чтобы его увидеть.</span><span class="en">Five facts about the market. Each has a source — tap to see it.</span></p>
+    </div>
+    <div class="sgrid">
+      <div class="sg"><i class="chk"></i>
+        <div class="big">&gt;100<small> <span class="ru">млн т</span><span class="en">Mt</span></small></div>
+        <p><span class="ru">Мировой спрос на водород в 2025 году; почти весь — нефтепереработка, аммиак, метанол и тяжёлая промышленность.</span><span class="en">Global hydrogen demand in 2025, almost all of it in refining, ammonia, methanol and heavy industry.</span></p>
+        <button type="button" class="src-btn" aria-expanded="false"><i>+</i><span class="ru">Источник</span><span class="en">Source</span> 1</button>
+        <div class="src-pop" hidden>IEA, Global Hydrogen Review 2026 · <a href="#sources" data-jump="1">↓</a></div>
+      </div>
+      <div class="sg"><i class="chk"></i>
+        <div class="big">≈1<small>%</small></div>
+        <p><span class="ru">Доля низкоэмиссионного водорода в производстве. Этот разрыв мог бы закрыть более дешёвый природный источник.</span><span class="en">Low-emissions hydrogen's share of production — the gap a lower-cost natural source could fill.</span></p>
+        <button type="button" class="src-btn" aria-expanded="false"><i>+</i><span class="ru">Источник</span><span class="en">Source</span> 1</button>
+        <div class="src-pop" hidden>IEA, Global Hydrogen Review 2026 · <a href="#sources" data-jump="1">↓</a></div>
+      </div>
+      <div class="sg"><i class="chk"></i>
+        <div class="big">40+</div>
+        <p><span class="ru">Компаний ведут поиск природного водорода — ещё недавно их были единицы.</span><span class="en">Companies exploring for natural hydrogen — up from a handful.</span></p>
+        <button type="button" class="src-btn" aria-expanded="false"><i>+</i><span class="ru">Источник</span><span class="en">Source</span> 2</button>
+        <div class="src-pop" hidden>gasworld, natural hydrogen exploration funding, 2026 · <a href="#sources" data-jump="2">↓</a></div>
+      </div>
+      <div class="sg"><i class="chk"></i>
+        <div class="big">He</div>
+        <p><span class="ru">Поставки гелия зависят от небольшого числа производителей, а МРТ и производство полупроводников поддерживают устойчивый спрос.</span><span class="en">Helium supply depends on a small number of producers, while MRI and semiconductor manufacturing keep demand steady.</span></p>
+        <button type="button" class="src-btn" aria-expanded="false"><i>+</i><span class="ru">Источник</span><span class="en">Source</span> 3</button>
+        <div class="src-pop" hidden>Research and Markets, Helium market analysis, 01.2026 · <a href="#sources" data-jump="3">↓</a></div>
+      </div>
+      <div class="sg"><i class="chk"></i>
+        <div class="big">01.08<small>.2023</small></div>
+        <p><span class="ru">С этой даты природный водород включён в российский классификатор полезных ископаемых.</span><span class="en">Since this date natural hydrogen has been listed as a mineral resource in Russia's national classifier.</span></p>
+        <button type="button" class="src-btn" aria-expanded="false"><i>+</i><span class="ru">Источник</span><span class="en">Source</span> 4</button>
+        <div class="src-pop" hidden>Krainov et al., Proceedings of Voronezh State University, Geology, 2026, no. 1 · <a href="#sources" data-jump="4">↓</a></div>
+      </div>
+      <div class="sg caveat">
+        <span class="eyebrow"><span class="ru">Оговорка</span><span class="en">Caveat</span></span>
+        <p><span class="ru">«Природный» не значит автоматически «без выбросов» или «неисчерпаемый». Климатический эффект зависит от полного цикла, примесей и утечек. Мы называем природный водород потенциально низкоуглеродным ресурсом.</span><span class="en">“Natural” does not automatically mean zero-emission or unlimited. The climate effect depends on the full cycle, impurities and leaks. We describe natural hydrogen as a potentially low-carbon resource.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 04 WHAT WE DO -->
+<section class="sec in" id="what">
+  <div class="sec-top"><div class="l"><b>04</b><span class="ru">Что мы делаем</span><span class="en">What we do</span></div><i class="chk"></i></div>
+  <div class="sec-head">
+    <h2 class="display"><span class="ru">Мы снижаем геологическую неопределённость — шаг за шагом, с проверяемыми результатами.</span><span class="en">We reduce geological uncertainty — step by step, with results anyone can check.</span></h2>
+    <p class="lead"><span class="ru">Fons Latens соединяет три вещи, которые обычно существуют отдельно.</span><span class="en">Fons Latens brings together three things that usually live apart.</span></p>
+  </div>
+  <div class="flow corners">
+    <div class="fl"><span class="num">01</span><h3><span class="ru">Качественные газовые измерения</span><span class="en">High-quality gas measurements</span></h3><p><span class="ru">Пробоотбор, газовый каротаж, лаборатории, архивные данные.</span><span class="en">Sampling, gas logging, laboratories, archive records.</span></p><span class="op">+</span></div>
+    <div class="fl"><span class="num">02</span><h3><span class="ru">Независимая научная интерпретация</span><span class="en">Independent scientific interpretation</span></h3><p><span class="ru">Модели, проверка аномалий, альтернативные объяснения.</span><span class="en">Models, anomaly checks, alternative explanations.</span></p><span class="op">+</span></div>
+    <div class="fl"><span class="num">03</span><h3><span class="ru">Инвестиционный подход</span><span class="en">An investment approach</span></h3><p><span class="ru">Капитал для команд, технологий и проектов после технических этапов.</span><span class="en">Capital for teams, technologies and projects after the technical stages.</span></p><span class="op">=</span></div>
+    <div class="fl res"><span class="eyebrow"><span class="ru">Рабочая гипотеза</span><span class="en">Working hypothesis</span></span><h3><span class="ru">Лучший выбор: где вести разведку и во что инвестировать</span><span class="en">Better choices of where to explore and what to invest in</span></h3><p><span class="ru">Устойчивый поток надёжных измерений вместе с сильной интерпретацией.</span><span class="en">A steady flow of reliable measurements, combined with strong interpretation.</span></p></div>
+  </div>
+
+  <div class="two-res">
+    <h3 class="display"><span class="ru">Два ресурса. Считаем отдельно.</span><span class="en">Two resources. Counted separately.</span></h3>
+    <p class="lead" style="font-size:16px"><span class="ru">Водород — сырьё для промышленности. Гелий — самостоятельный критически важный технологический газ. У них общая геология, пробоотбор и лаборатории, но у каждого свой рынок, требования к чистоте и экономика.</span><span class="en">Hydrogen is a feedstock for industry. Helium is a critical technology gas in its own right. They share geology, sampling and laboratories — but each has its own market, purity requirements and economics.</span></p>
+  </div>
+  <div class="cmp-switch">
+    <div class="seg" role="group" aria-label="Gas">
+      <button type="button" data-show="h2" aria-pressed="true">H₂</button>
+      <button type="button" data-show="he" aria-pressed="false">He</button>
+    </div>
+  </div>
+  <div class="cmp corners" id="cmp" data-show="h2">
+    <div class="el-corner"><span class="eyebrow"><span class="ru">Сравнение</span><span class="en">Comparison</span></span></div>
+    <div class="el h2">
+      <div class="tile"><span class="z">1</span><span class="s">H<sub>2</sub></span><span class="m">1.008 u</span></div>
+      <div><h3><span class="ru">Природный водород</span><span class="en">Natural hydrogen</span></h3><p><span class="ru">Сырьё для промышленности.</span><span class="en">A feedstock for industry.</span></p></div>
+    </div>
+    <div class="el he">
+      <div class="tile"><span class="z">2</span><span class="s">He</span><span class="m">4.0026 u</span></div>
+      <div><h3><span class="ru">Гелий</span><span class="en">Helium</span></h3><p><span class="ru">Критически важный технологический газ.</span><span class="en">A critical technology gas.</span></p></div>
+    </div>
+    <div class="cell k" data-r="0"><span class="ru">Спрос</span><span class="en">Demand</span></div>
+    <div class="cell h2" data-r="0"><span class="ru">Нефтепереработка, аммиак, метанол, тяжёлая промышленность.</span><span class="en">Refining, ammonia, methanol, heavy industry.</span></div>
+    <div class="cell he" data-r="0"><span class="ru">МРТ, производство полупроводников.</span><span class="en">MRI, semiconductor manufacturing.</span></div>
+    <div class="cell k" data-r="1"><span class="ru">Рынок</span><span class="en">Market</span></div>
+    <div class="cell h2" data-r="1"><span class="ru">Свой рынок и своя экономика.</span><span class="en">Its own market and economics.</span></div>
+    <div class="cell he" data-r="1"><span class="ru">Отдельный, давно сложившийся рынок.</span><span class="en">A separate, established market.</span></div>
+    <div class="cell k" data-r="2"><span class="ru">Общее</span><span class="en">Shared</span></div>
+    <div class="cell h2" data-r="2"><span class="ru">Геология, пробоотбор, лабораторная работа.</span><span class="en">Geology, sampling, laboratory work.</span></div>
+    <div class="cell he" data-r="2"><span class="ru">Те же работы; газы могут встречаться вместе.</span><span class="en">The same work; the gases can occur together.</span></div>
+    <div class="cell k row-last" data-r="3"><span class="ru">Отдельно</span><span class="en">Separately</span></div>
+    <div class="cell h2 row-last" data-r="3"><span class="ru">Требования к чистоте и экономика H₂.</span><span class="en">H₂ purity requirements and economics.</span></div>
+    <div class="cell he row-last" data-r="3"><span class="ru">Оцениваем по собственной экономике He.</span><span class="en">Assessed on helium's own economics.</span></div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 05 HOW IT WORKS -->
+<section class="sec in" id="how">
+  <div class="sec-top"><div class="l"><b>05</b><span class="ru">Как это работает</span><span class="en">How it works</span></div><i class="chk"></i></div>
+  <div class="sec-head">
+    <h2 class="display"><span class="ru">Четыре этапа. Понятный критерий перед каждым следующим шагом.</span><span class="en">Four stages. A clear gate before each next step.</span></h2>
+    <p class="lead"><span class="ru">AI и моделирование помогают интерпретации. Они не заменяют геологию, пробоотбор и испытания.</span><span class="en">AI and modelling support interpretation. They do not replace geology, sampling and testing.</span></p>
+  </div>
+  <div class="prog corners">
+    <div class="well-col">
+      <div class="well-sticky">
+        <svg viewBox="0 0 240 520" fill="none" aria-hidden="true">
+          <g id="well-strata"></g>
+          <line x1="120" y1="16" x2="120" y2="470" stroke="var(--line-2)" stroke-width="1" stroke-dasharray="3 4"/>
+          <line id="well-fill" x1="120" y1="16" x2="120" y2="110" stroke="var(--neon)" stroke-width="2.5" style="filter:drop-shadow(0 0 5px var(--neon))"/>
+          <path d="M108 10h24l-4 6h-16z" fill="var(--fg-2)"/>
+          <g id="well-nodes" font-family="JetBrains Mono, monospace" font-size="10" letter-spacing="1"></g>
+        </svg>
+        <div class="well-legend">
+          <span><i></i><span class="ru">Позиция чтения</span><span class="en">Reading position</span></span>
+          <span><i class="h"></i><span class="ru">Мы сейчас здесь — 01</span><span class="en">We are here — 01</span></span>
+          <span style="opacity:.8"><span class="ru">Схема, не геологический разрез</span><span class="en">Diagram, not a geological section</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="stages">
+      <div class="stage active" data-s="0">
+        <div class="hd"><h3><span class="ru">01 / Данные</span><span class="en">01 / Data</span></h3><span class="pill now"><i></i><span class="ru">Сейчас</span><span class="en">Now</span></span></div>
+        <p><span class="ru">Партнёрства с операторами пробоотбора, командами газового каротажа и лабораториями; архивные данные; собственные полевые измерения.</span><span class="en">Partnerships with sampling operators, gas-logging teams and laboratories; archive records; our own field measurements.</span></p>
+        <p class="gate"><b><span class="ru">Идём дальше, когда</span><span class="en">We move on when</span></b><span class="ru">у нас есть новые пробы с задокументированной методикой и подтверждённые права на использование данных.</span><span class="en">we hold new samples with a documented method and confirmed rights to use the data.</span></p>
+      </div>
+      <div class="stage" data-s="1">
+        <div class="hd"><h3><span class="ru">02 / Исследование</span><span class="en">02 / Research</span></h3><span class="pill"><i></i><span class="ru">Далее</span><span class="en">Next</span></span></div>
+        <p><span class="ru">Объединяем данные, строим модели, независимо проверяем аномалии и рассматриваем альтернативные объяснения.</span><span class="en">We combine data, build models, test anomalies independently and consider alternative explanations.</span></p>
+        <p class="gate"><b><span class="ru">Идём дальше, когда</span><span class="en">We move on when</span></b><span class="ru">есть ранжированный список перспективных объектов и план проверки каждого.</span><span class="en">we have a ranked list of prospects and a verification plan for each.</span></p>
+      </div>
+      <div class="stage" data-s="2">
+        <div class="hd"><h3><span class="ru">03 / Разведка</span><span class="en">03 / Exploration</span></h3><span class="pill"><i></i><span class="ru">Позже</span><span class="en">Later</span></span></div>
+        <p><span class="ru">Работа вместе с обладателем необходимых прав на недра: испытания и оценка притока газа.</span><span class="en">Work together with the holder of the necessary subsurface rights: testing and assessment of gas flow.</span></p>
+        <p class="gate"><b><span class="ru">Идём дальше, когда</span><span class="en">We move on when</span></b><span class="ru">параметры пласта и продукта достоверны.</span><span class="en">reservoir and product parameters are reliable.</span></p>
+      </div>
+      <div class="stage" data-s="3">
+        <div class="hd"><h3><span class="ru">04 / Капитал</span><span class="en">04 / Capital</span></h3><span class="pill"><i></i><span class="ru">Позже</span><span class="en">Later</span></span></div>
+        <p><span class="ru">Инвестиции в команды, технологии и проекты, прошедшие технические этапы.</span><span class="en">Investment in teams, technologies and projects once they pass the technical stages.</span></p>
+        <p class="gate"><b><span class="ru">Цель</span><span class="en">The goal</span></b><span class="ru">рост стоимости подтверждённых активов.</span><span class="en">growth in the value of confirmed assets.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 06 EVIDENCE -->
+<section class="sec in" id="evidence">
+  <div class="sec-top"><div class="l"><b>06</b><span class="ru">Стандарт доказательности</span><span class="en">Our evidence standard</span></div><i class="chk"></i></div>
+  <div class="sec-head">
+    <h2 class="display"><span class="ru">Каждое утверждение на сайте помечено уровнем доказательности.</span><span class="en">Every claim on this site carries its level of proof.</span></h2>
+    <p class="lead"><span class="ru">Мы отделяем то, что думаем, от того, что измерили. Каждый проект и материал помечен одним из четырёх уровней.</span><span class="en">We separate what we think from what we have measured. Each project and article is labelled with one of four levels.</span></p>
+  </div>
+  <div class="ladder corners">
+    <div class="steps" role="tablist" aria-label="Levels of evidence">
+      <button class="step" role="tab" id="tab-0" aria-controls="lp-0" aria-selected="true" tabindex="0"><span class="n">01</span><span class="t"><span class="ru">Гипотеза</span><span class="en">Hypothesis</span></span><span class="bars"><i class="f"></i><i></i><i></i><i></i></span></button>
+      <button class="step" role="tab" id="tab-1" aria-controls="lp-1" aria-selected="false" tabindex="-1"><span class="n">02</span><span class="t"><span class="ru">Измерение</span><span class="en">Measurement</span></span><span class="bars"><i class="f"></i><i class="f"></i><i></i><i></i></span></button>
+      <button class="step" role="tab" id="tab-2" aria-controls="lp-2" aria-selected="false" tabindex="-1"><span class="n">03</span><span class="t"><span class="ru">Испытание</span><span class="en">Test</span></span><span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i></i></span></button>
+      <button class="step" role="tab" id="tab-3" aria-controls="lp-3" aria-selected="false" tabindex="-1"><span class="n">04</span><span class="t"><span class="ru">Коммерческий проект</span><span class="en">Commercial project</span></span><span class="bars"><i class="f"></i><i class="f"></i><i class="f"></i><i class="f"></i></span></button>
+    </div>
+    <div>
+      <div class="lpanel" role="tabpanel" id="lp-0" aria-labelledby="tab-0">
+        <div class="meter"><div class="track"><div class="fill" style="width:25%"></div></div><span>1 / 4</span></div>
+        <h3><span class="ru">Гипотеза</span><span class="en">Hypothesis</span></h3>
+        <div class="lgrid">
+          <div><span class="eyebrow"><span class="ru">Что это значит</span><span class="en">What it means</span></span><p><span class="ru">Есть объяснение и план его проверки.</span><span class="en">There is an explanation and a plan to test it.</span></p></div>
+          <div><span class="eyebrow"><span class="ru">Что мы публикуем</span><span class="en">What we publish</span></span><p><span class="ru">Вопрос, метод и то, что подтвердит или опровергнет гипотезу.</span><span class="en">The question, the method, what would confirm or refute it.</span></p></div>
+        </div>
+      </div>
+      <div class="lpanel" role="tabpanel" id="lp-1" aria-labelledby="tab-1" hidden>
+        <div class="meter"><div class="track"><div class="fill" style="width:50%"></div></div><span>2 / 4</span></div>
+        <h3><span class="ru">Измерение</span><span class="en">Measurement</span></h3>
+        <div class="lgrid">
+          <div><span class="eyebrow"><span class="ru">Что это значит</span><span class="en">What it means</span></span><p><span class="ru">Газ обнаружен в конкретной пробе при указанных условиях.</span><span class="en">Gas was detected in a specific sample under stated conditions.</span></p></div>
+          <div><span class="eyebrow"><span class="ru">Что мы публикуем</span><span class="en">What we publish</span></span><p><span class="ru">Метод, дату, среду отбора, единицы, предел обнаружения, контроль качества.</span><span class="en">Method, date, sampling medium, units, detection limit, quality control.</span></p></div>
+        </div>
+      </div>
+      <div class="lpanel" role="tabpanel" id="lp-2" aria-labelledby="tab-2" hidden>
+        <div class="meter"><div class="track"><div class="fill" style="width:75%"></div></div><span>3 / 4</span></div>
+        <h3><span class="ru">Испытание</span><span class="en">Test</span></h3>
+        <div class="lgrid">
+          <div><span class="eyebrow"><span class="ru">Что это значит</span><span class="en">What it means</span></span><p><span class="ru">Есть данные о притоке газа и поведении объекта.</span><span class="en">Data on gas flow and how the site behaves.</span></p></div>
+          <div><span class="eyebrow"><span class="ru">Что мы публикуем</span><span class="en">What we publish</span></span><p><span class="ru">Длительность, дебиты, давление, состав газа, независимую проверку.</span><span class="en">Duration, flow rates, pressure, gas composition, independent check.</span></p></div>
+        </div>
+      </div>
+      <div class="lpanel" role="tabpanel" id="lp-3" aria-labelledby="tab-3" hidden>
+        <div class="meter"><div class="track"><div class="fill" style="width:100%"></div></div><span>4 / 4</span></div>
+        <h3><span class="ru">Коммерческий проект</span><span class="en">Commercial project</span></h3>
+        <div class="lgrid">
+          <div><span class="eyebrow"><span class="ru">Что это значит</span><span class="en">What it means</span></span><p><span class="ru">Установлены продукт, затраты, права и покупатель.</span><span class="en">Product, costs, rights and buyer are established.</span></p></div>
+          <div><span class="eyebrow"><span class="ru">Что мы публикуем</span><span class="en">What we publish</span></span><p><span class="ru">Подтверждённые показатели с их границами и стадией проекта.</span><span class="en">Confirmed figures with their limits and the project stage.</span></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="callout"><span class="ru">Мы открыты к нестандартным идеям о происхождении водорода. Мы рассматриваем их как гипотезы и проверяем их наблюдаемые следствия.</span><span class="en">We are open to unconventional ideas about where hydrogen comes from. We treat them as hypotheses and test their observable consequences.</span></div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 07 DIRECTIONS -->
+<section class="sec in" id="directions">
+  <div class="sec-top"><div class="l"><b>07</b><span class="ru">Четыре направления</span><span class="en">Four directions</span></div><i class="chk"></i></div>
+  <div class="sec-head"><h2 class="display"><span class="ru">Одна инициатива. Четыре входа.</span><span class="en">One initiative. Four ways in.</span></h2></div>
+  <div class="acc corners" id="acc">
+    <article class="dir active" id="capital">
+      <button type="button" class="head" aria-expanded="true"><span class="path">/CAPITAL</span><span class="plus">+</span></button>
+      <div class="inner">
+        <h3>Fons Latens<br>Capital</h3>
+        <p class="tag"><span class="ru">Капитал для разведки недр.</span><span class="en">Capital for subsurface exploration.</span></p>
+        <div class="more"><div>
+          <p><span class="ru">Инвестиционный тезис, интересующие компании и компетенции, этапы рассмотрения, форматы партнёрства.</span><span class="en">Investment thesis, companies and competencies of interest, review stages, partnership formats.</span></p>
+          <a class="btn btn-neon" href="#contact" data-topic="capital"><span class="ru">Предложить проект</span><span class="en">Propose a project</span><span class="arr">→</span></a>
+          <div class="dlinks"><a href="#exploration"><span class="en">Exploration &amp; production</span><span class="ru">Разведка и добыча</span> →</a><a href="#equipment"><span class="en">Equipment &amp; logistics</span><span class="ru">Оборудование и логистика</span> →</a></div>
+        </div></div>
+      </div>
+      <span class="big-n" aria-hidden="true">01</span>
+    </article>
+    <article class="dir" id="research">
+      <button type="button" class="head" aria-expanded="false"><span class="path">/RESEARCH</span><span class="plus">+</span></button>
+      <div class="inner">
+        <h3>Fons Latens<br>Research</h3>
+        <p class="tag"><span class="ru">От вопроса к измерению.</span><span class="en">From question to measurement.</span></p>
+        <div class="more"><div>
+          <p><span class="ru">Научные задачи, методы, исследовательская программа, публикации по мере появления. Грантовые программы планируются.</span><span class="en">Scientific tasks, methods, research programme, publications as they appear. Grant programmes are planned.</span></p>
+          <a class="btn btn-neon" href="#contact" data-topic="research"><span class="ru">Предложить исследование</span><span class="en">Propose research</span><span class="arr">→</span></a>
+          <div class="dlinks"><a href="#researchers"><span class="en">Proposal for research teams</span><span class="ru">Предложение для научных команд</span> →</a></div>
+        </div></div>
+      </div>
+      <span class="big-n" aria-hidden="true">02</span>
+    </article>
+    <article class="dir" id="news">
+      <button type="button" class="head" aria-expanded="false"><span class="path">/NEWS</span><span class="plus">+</span></button>
+      <div class="inner">
+        <h3>Fons Latens<br>News</h3>
+        <p class="tag"><span class="ru">Понимать, что происходит в недрах.</span><span class="en">Understanding what happens underground.</span></p>
+        <div class="more"><div>
+          <p><span class="ru">Наука, проекты, технологии, капитал, интервью — у каждого материала автор, дата, первоисточники и раскрытие финансовых связей.</span><span class="en">Science, projects, technology, capital, interviews — each piece with an author, a date, primary sources and a disclosure of financial ties.</span></p>
+          <div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn btn-neon" href="#news"><span class="ru">Открыть журнал</span><span class="en">Open the journal</span><span class="arr">↗</span></a><a class="btn" href="#contact" data-topic="news"><span class="ru">Подписаться</span><span class="en">Subscribe</span></a></div>
+        </div></div>
+      </div>
+      <span class="big-n" aria-hidden="true">03</span>
+    </article>
+    <article class="dir" id="forum">
+      <button type="button" class="head" aria-expanded="false"><span class="path">/FORUM</span><span class="plus">+</span></button>
+      <div class="inner">
+        <h3>Fons Latens<br>Forum</h3>
+        <p class="tag"><span class="ru">Где встречаются наука, капитал и индустрия.</span><span class="en">Where science, capital and industry meet.</span></p>
+        <div class="more"><div>
+          <p><span class="ru">Будущая конференционная и дискуссионная площадка; первая крупная встреча планируется в ОАЭ.</span><span class="en">A future conference and discussion platform; the first major meeting is planned in the UAE.</span></p>
+          <a class="btn btn-neon" href="#contact" data-topic="forum"><span class="ru">Сообщить о запуске</span><span class="en">Notify me about the launch</span><span class="arr">→</span></a>
+        </div></div>
+      </div>
+      <span class="big-n" aria-hidden="true">04</span>
+    </article>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 08 WHO WE WORK WITH -->
+<section class="sec in" id="who">
+  <div class="sec-top"><div class="l"><b>08</b><span class="ru">С кем мы работаем</span><span class="en">Who we work with</span></div><i class="chk"></i></div>
+  <div class="sec-head"><h2 class="display"><span class="ru">Что вы получаете от разговора с нами.</span><span class="en">What you get from talking to us.</span></h2></div>
+  <div class="aud corners" id="partners">
+    <div class="au">
+      <span class="eyebrow au-k"><span class="en">Capital · Equipment</span><span class="ru">Capital · Оборудование</span></span>
+      <h3><span class="en">Owners of service companies, labs and data</span><span class="ru">Владельцы сервисных компаний, лабораторий и данных</span></h3>
+      <p><span class="en">A partner who values methods, people and data quality — and a clear conversation about joint work, pilots or a deal.</span><span class="ru">Партнёр, который ценит методы, людей и качество данных, и понятный разговор о совместной работе, пилотах или сделке.</span></p>
+      <div class="au-foot">
+        <a class="go" href="#equipment"><span class="en">Read the proposal</span><span class="ru">Читать предложение</span><span class="arr">→</span></a>
+        <a class="go go-2" href="#contact" data-topic="capital"><span class="en">Write to us</span><span class="ru">Написать нам</span><span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="au">
+      <span class="eyebrow au-k"><span class="en">Research · Research teams</span><span class="ru">Research · Научные команды</span></span>
+      <h3><span class="en">Scientists and research teams</span><span class="ru">Учёные и исследовательские команды</span></h3>
+      <p><span class="en">A concrete question, access to field work and measurements, and scientific independence in publishing results.</span><span class="ru">Конкретный вопрос, доступ к полевым работам и измерениям, научная независимость в публикации результатов.</span></p>
+      <div class="au-foot">
+        <a class="go" href="#researchers"><span class="en">Read the proposal</span><span class="ru">Читать предложение</span><span class="arr">→</span></a>
+        <a class="go go-2" href="#contact" data-topic="research"><span class="en">Write to us</span><span class="ru">Написать нам</span><span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="au">
+      <span class="eyebrow au-k"><span class="en">Capital · Exploration</span><span class="ru">Capital · Разведка</span></span>
+      <h3><span class="en">Investors and industrial partners</span><span class="ru">Инвесторы и промышленные партнёры</span></h3>
+      <p><span class="en">A transparent view of how sites are selected, what stage each is at and what evidence comes next.</span><span class="ru">Прозрачная картина: как выбираются объекты, на какой они стадии и какие доказательства будут следующими.</span></p>
+      <div class="au-foot">
+        <a class="go" href="#exploration"><span class="en">Read the proposal</span><span class="ru">Читать предложение</span><span class="arr">→</span></a>
+        <a class="go go-2" href="#contact" data-topic="capital"><span class="en">Write to us</span><span class="ru">Написать нам</span><span class="arr">→</span></a>
+      </div>
+    </div>
+    <div class="au">
+      <span class="eyebrow au-k"><span class="en">News · Fons Latens News</span><span class="ru">News · Fons Latens News</span></span>
+      <h3><span class="en">Readers and the professional community</span><span class="ru">Читатели и профессиональное сообщество</span></h3>
+      <p><span class="en">Clear explanations of why H₂ and He matter, and how to tell a reliable result from a loud announcement.</span><span class="ru">Понятные объяснения, почему важны H₂ и He и как отличить надёжный результат от громкого заявления.</span></p>
+      <div class="au-foot">
+        <a class="go" href="#news"><span class="en">Open the news</span><span class="ru">Открыть новости</span><span class="arr">→</span></a>
+        <a class="go go-2" href="#contact" data-topic="news"><span class="en">Write to us</span><span class="ru">Написать нам</span><span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 09 WAYS TO WORK WITH US -->
+<section class="sec in" id="ways">
+  <div class="sec-top"><div class="l"><b>09</b><span class="ru">Форматы работы</span><span class="en">Ways to work with us</span></div><i class="chk"></i></div>
+  <div class="sec-head">
+    <h2 class="display"><span class="ru">Выберите подходящий формат.</span><span class="en">Choose the format that fits you.</span></h2>
+    <p class="lead"><span class="ru">Нажмите на формат — мы подставим его в форму обращения.</span><span class="en">Pick a format and we will fill it into the contact form for you.</span></p>
+  </div>
+  <div class="fmts corners">
+    <button type="button" class="fmt" data-topic="research" data-en="Data partnership" data-ru="Партнёрство по данным"><span class="i">01</span><span class="nm"><span class="ru">Партнёрство по данным</span><span class="en">Data partnership</span></span><span class="ds"><span class="ru">Пробоотбор, газовый каротаж, лабораторный анализ, доступ к архивам с подтверждёнными правами использования.</span><span class="en">Sampling, gas logging, laboratory analysis, access to archive records with confirmed usage rights.</span></span><span class="tp">Research</span><span class="arr">→</span></button>
+    <button type="button" class="fmt" data-topic="research" data-en="Joint research" data-ru="Совместное исследование"><span class="i">02</span><span class="nm"><span class="ru">Совместное исследование</span><span class="en">Joint research</span></span><span class="ds"><span class="ru">Общий научный вопрос, полевая программа и план публикаций.</span><span class="en">A shared scientific question, field programme and publication plan.</span></span><span class="tp">Research</span><span class="arr">→</span></button>
+    <button type="button" class="fmt" data-topic="capital" data-en="Company or project discussion" data-ru="Обсуждение компании или проекта"><span class="i">03</span><span class="nm"><span class="ru">Обсуждение компании или проекта</span><span class="en">Company or project discussion</span></span><span class="ds"><span class="ru">Для владельцев, которые рассматривают партнёрство, инвестиции или продажу.</span><span class="en">For owners considering partnership, investment or sale.</span></span><span class="tp">Capital</span><span class="arr">→</span></button>
+    <button type="button" class="fmt" data-topic="capital" data-en="Co-investment" data-ru="Соинвестирование"><span class="i">04</span><span class="nm"><span class="ru">Соинвестирование</span><span class="en">Co-investment</span></span><span class="ds"><span class="ru">Для инвесторов, которым интересны проекты, прошедшие технические этапы.</span><span class="en">For investors interested in projects that pass the technical stages.</span></span><span class="tp">Capital</span><span class="arr">→</span></button>
+    <button type="button" class="fmt" data-topic="news" data-en="Editorial contribution" data-ru="Вклад в редакцию"><span class="i">05</span><span class="nm"><span class="ru">Вклад в редакцию</span><span class="en">Editorial contribution</span></span><span class="ds"><span class="ru">Экспертные комментарии, интервью, данные для News.</span><span class="en">Expert commentary, interviews, data for News.</span></span><span class="tp">News</span><span class="arr">→</span></button>
+    <button type="button" class="fmt" data-topic="forum" data-en="Forum interest" data-ru="Интерес к Forum"><span class="i">06</span><span class="nm"><span class="ru">Интерес к Forum</span><span class="en">Forum interest</span></span><span class="ds"><span class="ru">Для спикеров, организаторов и участников будущих мероприятий.</span><span class="en">For speakers, organisers and participants of future events.</span></span><span class="tp">Forum</span><span class="arr">→</span></button>
+  </div>
+  <div class="fmts-foot">
+    <p class="note"><span class="ru">Условия обсуждаем индивидуально. Мы не публикуем инвестиционные условия, пока их нет.</span><span class="en">We discuss terms individually. We do not publish investment conditions until they exist.</span></p>
+    <a class="btn btn-primary" href="#contact"><span class="ru">Обсудить сотрудничество</span><span class="en">Discuss a partnership</span></a>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 10 COMMITMENTS -->
+<section class="sec in" id="commitments">
+  <div class="sec-top"><div class="l"><b>10</b><span class="ru">Наши обязательства</span><span class="en">Our commitments</span></div><i class="chk"></i></div>
+  <div class="commit corners">
+    <div class="l">
+      <div class="ring" aria-hidden="true"></div>
+      <h2 class="display"><span class="ru">За что нас можно спросить.</span><span class="en">What you can hold us to.</span></h2>
+      <p class="eyebrow" style="position:relative;z-index:1"><span class="ru">Применяется ко всему сайту</span><span class="en">Applies to this entire site</span></p>
+    </div>
+    <ul class="cm">
+      <li><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x=".5" y=".5" width="17" height="17" stroke="var(--neon)"/><path d="M4.5 9.2 7.6 12 13.5 5.8" stroke="var(--neon)" stroke-width="1.4"/></svg><span><span class="ru">У каждой цифры есть источник и дата.</span><span class="en">Every number has a source and a date.</span></span></li>
+      <li><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x=".5" y=".5" width="17" height="17" stroke="var(--neon)"/><path d="M4.5 9.2 7.6 12 13.5 5.8" stroke="var(--neon)" stroke-width="1.4"/></svg><span><span class="ru">У каждого проекта указана стадия.</span><span class="en">Every project has a stated stage.</span></span></li>
+      <li><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x=".5" y=".5" width="17" height="17" stroke="var(--neon)"/><path d="M4.5 9.2 7.6 12 13.5 5.8" stroke="var(--neon)" stroke-width="1.4"/></svg><span><span class="ru">У каждого партнёра подтверждённая роль — мы не показываем логотипы, которых не заслужили.</span><span class="en">Every partner has a confirmed role — we do not show logos we have not earned.</span></span></li>
+      <li><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x=".5" y=".5" width="17" height="17" stroke="var(--neon)"/><path d="M4.5 9.2 7.6 12 13.5 5.8" stroke="var(--neon)" stroke-width="1.4"/></svg><span><span class="ru">Гипотезы, измерения и результаты всегда помечены по-разному.</span><span class="en">Hypotheses, measurements and results are always labelled differently.</span></span></li>
+      <li><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><rect x=".5" y=".5" width="17" height="17" stroke="var(--neon)"/><path d="M4.5 9.2 7.6 12 13.5 5.8" stroke="var(--neon)" stroke-width="1.4"/></svg><span><span class="ru">В News раскрываются финансовые связи с компаниями, о которых мы пишем.</span><span class="en">In News, financial ties to the companies we cover are disclosed.</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 11 WHERE WE ARE NOW -->
+<section class="sec in" id="now">
+  <div class="sec-top"><div class="l"><b>11</b><span class="ru">Где мы сейчас</span><span class="en">Where we are now</span></div><i class="chk"></i></div>
+  <div class="sec-head"><h2 class="display"><span class="ru">Честная картина нашей стадии.</span><span class="en">An honest picture of our stage.</span></h2></div>
+  <div class="nnl corners">
+    <div class="nn now"><span class="pill now" style="align-self:flex-start"><i></i><span class="ru">Сейчас</span><span class="en">Now</span></span><div class="line"></div><p><span class="ru">Строим исследовательскую программу, собираем компетенции, собираем и изучаем доступные данные.</span><span class="en">Building the research programme, assembling competencies, collecting and reviewing available data.</span></p></div>
+    <div class="nn"><span class="pill" style="align-self:flex-start"><i></i><span class="ru">Далее</span><span class="en">Next</span></span><div class="line"></div><p><span class="ru">Первые партнёрства с операторами измерений и исследовательскими командами; первые полевые измерения.</span><span class="en">First partnerships with measurement operators and research teams; first field measurements.</span></p></div>
+    <div class="nn"><span class="pill" style="align-self:flex-start"><i></i><span class="ru">Позже</span><span class="en">Later</span></span><div class="line"></div><p><span class="ru">Выбор приоритетных объектов, разведка вместе с обладателями прав, первые инвестиции.</span><span class="en">Selection of priority sites, exploration together with rights holders, first investments.</span></p></div>
+  </div>
+  <div class="callout"><span class="ru">У нас пока нет лицензий на недра, месторождений или портфеля. Когда это изменится, этот блок скажет об этом — с датами.</span><span class="en">We do not yet hold subsurface licences, deposits or a portfolio. When this changes, this block will say so — with dates.</span></div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 12 FOUNDER -->
+<section class="sec in" id="founder">
+  <div class="sec-top"><div class="l"><b>12</b><span class="ru">Основатель</span><span class="en">Founder</span></div><i class="chk"></i></div>
+  <div class="people corners">
+    <div class="p1">
+      <div class="person">
+        <figure class="portrait"><img src="assets/img/founder.jpg" width="480" height="480" alt="Alexander Elizarev, founder of Fons Latens" loading="lazy" decoding="async"></figure>
+        <div>
+          <h3>Alexander Elizarev</h3>
+          <p class="role"><span class="ru">Основатель</span><span class="en">Founder</span></p>
+          <p class="bio"><span class="ru">IT-предприниматель, основатель компании-разработчика программного обеспечения для финансового сектора. Сейчас руководит Fons Latens — инициативой в области природного водорода и гелия.</span><span class="en">IT entrepreneur and founder of a software company for the financial sector. Now leading Fons Latens, focused on natural hydrogen and helium.</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="p2">
+      <p class="eyebrow"><span class="ru">Команда</span><span class="en">Team</span></p>
+      <p><span class="ru">Участники команды будут добавляться сюда по мере присоединения.</span><span class="en">Team members will be added here as they join.</span></p>
+      <a class="btn btn-neon" href="#contact" data-topic="research" style="align-self:flex-start"><span class="ru">Связаться</span><span class="en">Get in touch</span><span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 13 FAQ -->
+<section class="sec in" id="faq">
+  <div class="sec-top"><div class="l"><b>13</b><span class="ru">Вопросы</span><span class="en">Questions</span></div><i class="chk"></i></div>
+  <div class="faq-wrap">
+    <div class="faq-side">
+      <h2 class="display"><span class="ru">Вопросы, которые нам задают</span><span class="en">Questions we are asked</span></h2>
+      <button type="button" class="btn" id="faq-all" style="align-self:flex-start"><span class="ru">Раскрыть все</span><span class="en">Expand all</span></button>
+    </div>
+    <div class="faq" id="faq-list">
+      <details open><summary><span class="i">01</span><span class="q"><span class="ru">Fons Latens — это фонд?</span><span class="en">Is Fons Latens a fund?</span></span><span class="pl">+</span></summary>
+        <p class="a"><span class="ru"><b>Пока нет.</b> Сегодня это создаваемая инвестиционно-исследовательская инициатива. Юридическая структура для инвестиций и для некоммерческой поддержки исследований определяется; мы опубликуем её после регистрации.</span><span class="en"><b>Not yet.</b> Today it is an emerging investment and research initiative. The legal structure for investment and for non-profit research support is being defined; we will publish it once registered.</span></p></details>
+      <details><summary><span class="i">02</span><span class="q"><span class="ru">У вас есть лицензии или месторождения?</span><span class="en">Do you own licences or deposits?</span></span><span class="pl">+</span></summary>
+        <p class="a"><span class="ru"><b>Нет.</b> Наша первая задача — данные и исследования. Разведка планируется вместе с обладателями необходимых прав на недра.</span><span class="en"><b>No.</b> Our first task is data and research. Exploration is planned together with holders of the necessary subsurface rights.</span></p></details>
+      <details><summary><span class="i">03</span><span class="q"><span class="ru">Природный водород безуглеродный?</span><span class="en">Is natural hydrogen carbon-free?</span></span><span class="pl">+</span></summary>
+        <p class="a"><span class="ru"><b>Не автоматически.</b> Это потенциально низкоуглеродный ресурс; реальный след зависит от полного цикла, примесей и утечек.</span><span class="en"><b>Not automatically.</b> It is a potentially low-carbon resource; the real footprint depends on the full cycle, impurities and leaks.</span></p></details>
+      <details><summary><span class="i">04</span><span class="q"><span class="ru">Почему гелий вместе с водородом?</span><span class="en">Why helium alongside hydrogen?</span></span><span class="pl">+</span></summary>
+        <p class="a"><span class="ru">У них общая геология, пробоотбор и лабораторная работа, и они могут встречаться вместе. Но гелий — отдельный, давно сложившийся рынок, поэтому мы оцениваем его по собственной экономике.</span><span class="en">They share geology, sampling and laboratory work, and can occur together. But helium is a separate, established market, so we assess it on its own economics.</span></p></details>
+      <details><summary><span class="i">05</span><span class="q"><span class="ru">Где вы работаете?</span><span class="en">Where do you work?</span></span><span class="pl">+</span></summary>
+        <p class="a"><span class="ru">Россия — предполагаемая база полевых компетенций и подрядчиков. ОАЭ — планируемое международное присутствие, научные связи и мероприятия.</span><span class="en">Russia is the intended base for field competencies and contractors. The UAE is planned for international presence, scientific ties and events.</span></p></details>
+      <details><summary><span class="i">06</span><span class="q"><span class="ru">Вы принимаете внешний капитал?</span><span class="en">Do you accept outside capital?</span></span><span class="pl">+</span></summary>
+        <p class="a"><span class="ru">На этой стадии мы обсуждаем проекты и партнёрства. Условия для стороннего капитала будут опубликованы только после того, как будут определены.</span><span class="en">At this stage we discuss projects and partnerships. Terms for third-party capital will be published only once they are defined.</span></p></details>
+      <details><summary><span class="i">07</span><span class="q"><span class="ru">Как вы относитесь к нестандартным теориям происхождения водорода?</span><span class="en">How do you treat unconventional theories of hydrogen origin?</span></span><span class="pl">+</span></summary>
+        <p class="a"><span class="ru"><b>Как к гипотезам.</b> Мы изучаем несколько механизмов и проверяем, что каждый из них предсказывает в поле.</span><span class="en"><b>As hypotheses.</b> We study several mechanisms and test what each predicts in the field.</span></p></details>
+      <details><summary><span class="i">08</span><span class="q"><span class="ru">Насколько независим Fons Latens News?</span><span class="en">How independent is Fons Latens News?</span></span><span class="pl">+</span></summary>
+        <p class="a"><span class="ru">У каждого материала есть автор, дата и первоисточники, а любые финансовые связи с упомянутыми компаниями раскрываются. Исследования никогда не превращаются в скрытую рекламу.</span><span class="en">Every article has an author, a date and primary sources, and any financial ties to the companies discussed are disclosed. Research is never turned into hidden advertising.</span></p></details>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- 14 CONTACT -->
+<section class="sec in" id="contact">
+  <div class="sec-top"><div class="l"><b>14</b><span class="ru">Начать разговор</span><span class="en">Start a conversation</span></div><i class="chk"></i></div>
+  <div class="contact-grid corners">
+    <div class="cinfo">
+      <div class="globe-wrap" id="globe-wrap">
+        <canvas id="globe" aria-label="Schematic globe showing Russia and the UAE"></canvas>
+        <span class="cap2"><span class="ru">Перетащите</span><span class="en">Drag to rotate</span></span>
+        <span class="cap"><span class="ru">Схематичная сфера · заявленные географии</span><span class="en">Schematic sphere · declared geographies</span></span>
+      </div>
+      <div class="ctl">
+        <div class="row"><span><span class="ru">География</span><span class="en">Geography</span></span>
+          <div class="geo">
+            <button type="button" data-geo="0" class="on"><i></i><span><span class="ru">Россия — база полевых компетенций и подрядчиков</span><span class="en">Russia — base for field competencies and contractors</span></span></button>
+            <button type="button" data-geo="1"><i></i><span><span class="ru">ОАЭ — международное присутствие, научные связи, мероприятия</span><span class="en">UAE — international presence, scientific ties, events</span></span></button>
+          </div>
+        </div>
+        <div class="row"><span>Email</span><span class="ph">[email]</span></div>
+        <div class="row"><span><span class="ru">Телефон</span><span class="en">Phone</span></span><span class="ph">[phone]</span></div>
+        <div class="row"><span><span class="ru">Оператор</span><span class="en">Operator</span></span><span class="ph"><span class="ru">[юр. название после регистрации]</span><span class="en">[legal name after registration]</span></span></div>
+      </div>
+    </div>
+    <div class="cform" id="cform">
+      <p class="eyebrow">Capital · Research · News · Forum</p>
+      <h2 class="display"><span class="ru">Есть данные, компания, научный вопрос или проект? Давайте поговорим.</span><span class="en">Have data, a company, a research question or a project? Let's talk.</span></h2>
+      <form id="contact-form" novalidate>
+        <div class="f full">
+          <span class="lbl"><span class="ru">Тема</span><span class="en">Topic</span></span>
+          <div class="topics" role="radiogroup">
+            <input type="radio" name="topic" id="t-capital" value="capital" checked><label for="t-capital">Capital</label>
+            <input type="radio" name="topic" id="t-research" value="research"><label for="t-research">Research</label>
+            <input type="radio" name="topic" id="t-news" value="news"><label for="t-news">News</label>
+            <input type="radio" name="topic" id="t-forum" value="forum"><label for="t-forum">Forum</label>
+          </div>
+          <p class="thint" id="thint"></p>
+        </div>
+        <div class="f">
+          <label for="name"><span class="ru">Имя</span><span class="en">Name</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+          <span class="err"><span class="ru">Укажите имя.</span><span class="en">Please enter your name.</span></span>
+        </div>
+        <div class="f">
+          <label for="org"><span class="ru">Организация</span><span class="en">Organisation</span></label>
+          <input id="org" name="org" type="text" autocomplete="organization">
+        </div>
+        <div class="f full">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <span class="err"><span class="ru">Укажите email в формате name@company.com.</span><span class="en">Enter an email like name@company.com.</span></span>
+        </div>
+        <div class="f full">
+          <label for="msg"><span><span class="ru">Сообщение</span><span class="en">Message</span></span><span id="count">0 / 1000</span></label>
+          <textarea id="msg" name="msg" maxlength="1000" required></textarea>
+          <span class="err"><span class="ru">Напишите пару строк о сути обращения.</span><span class="en">Write a couple of lines about your request.</span></span>
+        </div>
+        <div class="f-actions">
+          <button class="btn btn-primary" type="submit"><span class="ru">Отправить</span><span class="en">Send</span><span class="arr">→</span></button>
+          <small><span class="ru">Отправляя форму, вы соглашаетесь на обработку указанных данных для ответа.</span><span class="en">By sending you agree to the processing of the data provided for a reply.</span></small>
+        </div>
+      </form>
+      <div class="done" id="done" hidden>
+        <h3><span class="ru">Спасибо</span><span class="en">Thank you</span></h3>
+        <p><span class="ru">Ваше сообщение дошло до человека, отвечающего за эту тему. Мы ответим в течение [N] рабочих дней.</span><span class="en">Your message has reached the person responsible for this topic. We will reply within [N] working days.</span></p>
+        <dl id="done-dl"></dl>
+        <button type="button" class="btn" id="again" style="justify-self:start"><span class="ru">Новое обращение</span><span class="en">New message</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="hatch"></div>
+
+<!-- SOURCES -->
+<section class="sec in sources" id="sources" style="padding-block:56px 64px">
+  <div class="sec-top"><div class="l"><b>[ ]</b><span class="ru">Источники</span><span class="en">Sources</span></div><i class="chk"></i></div>
+  <ol>
+    <li id="s1"><span class="num">1</span><div><b>IEA, Global Hydrogen Review 2026</b><br><span class="d"><span class="ru">Опубликовано в июне 2026</span><span class="en">Published June 2026</span></span></div></li>
+    <li id="s2"><span class="num">2</span><div><b>gasworld, natural hydrogen exploration funding</b><br><span class="d">2026</span></div></li>
+    <li id="s3"><span class="num">3</span><div><b>Research and Markets, Helium market analysis</b><br><span class="d"><span class="ru">Январь 2026</span><span class="en">January 2026</span></span><br><span class="todo"><span class="ru">До запуска заменить на USGS Mineral Commodity Summaries 2026</span><span class="en">Before launch, replace with USGS Mineral Commodity Summaries 2026</span></span></div></li>
+    <li id="s4"><span class="num">4</span><div><b>Krainov et al., Proceedings of Voronezh State University, Geology</b><br><span class="d">2026, no. 1</span></div></li>
+  </ol>
+</section>
+
+</main>
+<div id="subpage" hidden></div>
+<div id="newspage" hidden></div>
+
+<footer>
+  <div class="in">
+    <div>
+      <div class="sig"><div class="logo"><svg class="logo-svg" viewBox="0 0 229 20" fill="none" aria-hidden="true"><path d="M20 1H0V3.45455H20V1Z" fill="currentColor"/><path d="M20 5.09091H0V10H20V5.09091Z" fill="currentColor"/><path class="src" d="M20 11.6364H0V13.2727H20V11.6364Z"/><path d="M20 14.9091H0V19H20V14.9091Z" fill="currentColor"/><path d="M36.698 9.496H48.622V12.686H36.698V9.496ZM48.996 2.5V5.712H36.742L38.634 3.798V19H34.894V2.5H48.996ZM60.5915 19.33C58.6702 19.33 56.9835 18.9707 55.5315 18.252C54.0942 17.5333 52.9722 16.536 52.1655 15.26C51.3588 13.9693 50.9555 12.466 50.9555 10.75C50.9555 9.034 51.3588 7.538 52.1655 6.262C52.9722 4.97133 54.0942 3.96667 55.5315 3.248C56.9835 2.52933 58.6702 2.17 60.5915 2.17C62.5128 2.17 64.1922 2.52933 65.6295 3.248C67.0815 3.96667 68.2108 4.97133 69.0175 6.262C69.8242 7.538 70.2275 9.034 70.2275 10.75C70.2275 12.466 69.8242 13.9693 69.0175 15.26C68.2108 16.536 67.0815 17.5333 65.6295 18.252C64.1922 18.9707 62.5128 19.33 60.5915 19.33ZM60.5915 16.008C61.7942 16.008 62.8282 15.7953 63.6935 15.37C64.5735 14.9447 65.2482 14.336 65.7175 13.544C66.2015 12.752 66.4435 11.8207 66.4435 10.75C66.4435 9.67933 66.2015 8.748 65.7175 7.956C65.2482 7.164 64.5735 6.55533 63.6935 6.13C62.8282 5.70467 61.7942 5.492 60.5915 5.492C59.4035 5.492 58.3695 5.70467 57.4895 6.13C56.6095 6.55533 55.9275 7.164 55.4435 7.956C54.9742 8.748 54.7395 9.67933 54.7395 10.75C54.7395 11.8207 54.9742 12.752 55.4435 13.544C55.9275 14.336 56.6095 14.9447 57.4895 15.37C58.3695 15.7953 59.4035 16.008 60.5915 16.008ZM88.5327 16.536L87.2347 16.734V2.5H90.8647V19H86.1347L75.5747 4.766L76.8507 4.568V19H73.2427V2.5H78.0827L88.5327 16.536ZM93.7929 13.61H97.5769C97.6649 14.1673 97.9069 14.6587 98.3029 15.084C98.7136 15.4947 99.2563 15.8173 99.9309 16.052C100.62 16.272 101.412 16.382 102.307 16.382C103.612 16.382 104.639 16.1987 105.387 15.832C106.15 15.4507 106.531 14.9227 106.531 14.248C106.531 13.72 106.311 13.3167 105.871 13.038C105.446 12.7447 104.646 12.532 103.473 12.4L100.151 12.026C98.0096 11.7913 96.4549 11.2927 95.4869 10.53C94.5336 9.75267 94.0569 8.67467 94.0569 7.296C94.0569 6.21067 94.3723 5.28667 95.0029 4.524C95.6483 3.76133 96.5503 3.182 97.7089 2.786C98.8676 2.37533 100.232 2.17 101.801 2.17C103.326 2.17 104.683 2.39733 105.871 2.852C107.059 3.292 108.005 3.91533 108.709 4.722C109.413 5.514 109.794 6.44533 109.853 7.516H106.069C105.996 7.032 105.776 6.614 105.409 6.262C105.057 5.89533 104.566 5.61667 103.935 5.426C103.304 5.22067 102.564 5.118 101.713 5.118C100.525 5.118 99.5789 5.294 98.8749 5.646C98.1709 5.998 97.8189 6.49667 97.8189 7.142C97.8189 7.64067 98.0243 8.02933 98.4349 8.308C98.8603 8.572 99.6009 8.77 100.657 8.902L104.111 9.32C105.636 9.48133 106.846 9.74533 107.741 10.112C108.65 10.464 109.296 10.9407 109.677 11.542C110.073 12.1433 110.271 12.906 110.271 13.83C110.271 14.93 109.934 15.898 109.259 16.734C108.599 17.5553 107.668 18.1933 106.465 18.648C105.262 19.1027 103.854 19.33 102.241 19.33C100.598 19.33 99.1536 19.0953 97.9069 18.626C96.6603 18.142 95.6776 17.4747 94.9589 16.624C94.2403 15.7587 93.8516 14.754 93.7929 13.61ZM123.033 2.5V17.35L121.339 15.7H133.725V19H119.293V2.5H123.033ZM138.961 15.524V12.488H150.401V15.524H138.961ZM147.167 2.5L154.889 19H150.907L144.153 4.018H145.385L138.631 19H134.649L142.371 2.5H147.167ZM159.613 4.172H163.331V19H159.613V4.172ZM153.035 2.5H169.887V5.8H153.035V2.5ZM186.052 9.32V12.18H174.238V9.32H186.052ZM176.746 10.75L175.646 17.746L174.018 15.898H186.734V19H171.884L173.16 10.75L171.884 2.5H186.624V5.602H174.018L175.646 3.754L176.746 10.75ZM205.308 16.536L204.01 16.734V2.5H207.64V19H202.91L192.35 4.766L193.626 4.568V19H190.018V2.5H194.858L205.308 16.536ZM210.568 13.61H214.352C214.44 14.1673 214.682 14.6587 215.078 15.084C215.489 15.4947 216.032 15.8173 216.706 16.052C217.396 16.272 218.188 16.382 219.082 16.382C220.388 16.382 221.414 16.1987 222.162 15.832C222.925 15.4507 223.306 14.9227 223.306 14.248C223.306 13.72 223.086 13.3167 222.646 13.038C222.221 12.7447 221.422 12.532 220.248 12.4L216.926 12.026C214.785 11.7913 213.23 11.2927 212.262 10.53C211.309 9.75267 210.832 8.67467 210.832 7.296C210.832 6.21067 211.148 5.28667 211.778 4.524C212.424 3.76133 213.326 3.182 214.484 2.786C215.643 2.37533 217.007 2.17 218.576 2.17C220.102 2.17 221.458 2.39733 222.646 2.852C223.834 3.292 224.78 3.91533 225.484 4.722C226.188 5.514 226.57 6.44533 226.628 7.516H222.844C222.771 7.032 222.551 6.614 222.184 6.262C221.832 5.89533 221.341 5.61667 220.71 5.426C220.08 5.22067 219.339 5.118 218.488 5.118C217.3 5.118 216.354 5.294 215.65 5.646C214.946 5.998 214.594 6.49667 214.594 7.142C214.594 7.64067 214.8 8.02933 215.21 8.308C215.636 8.572 216.376 8.77 217.432 8.902L220.886 9.32C222.412 9.48133 223.622 9.74533 224.516 10.112C225.426 10.464 226.071 10.9407 226.452 11.542C226.848 12.1433 227.046 12.906 227.046 13.83C227.046 14.93 226.709 15.898 226.034 16.734C225.374 17.5553 224.443 18.1933 223.24 18.648C222.038 19.1027 220.63 19.33 219.016 19.33C217.374 19.33 215.929 19.0953 214.682 18.626C213.436 18.142 212.453 17.4747 211.734 16.624C211.016 15.7587 210.627 14.754 210.568 13.61Z" fill="currentColor"/></svg></div><span>Natural Hydrogen &amp; Helium · Subsurface Research &amp; Investment</span></div>
+      <p class="legal"><span class="ru">Fons Latens — создаваемая инвестиционно-исследовательская инициатива. Информация на сайте описывает планы и текущую работу и не является инвестиционным предложением.</span><span class="en">Fons Latens is an emerging investment and research initiative. Information on this site describes plans and work in progress and is not an offer of investment.</span></p>
+    </div>
+    <div class="right">
+      <a href="#directions" data-dir="0">/CAPITAL</a><a href="#directions" data-dir="1">/RESEARCH</a><a href="#news">/NEWS</a><a href="#directions" data-dir="3">/FORUM</a>
+      <span style="margin-top:6px;color:var(--fg-3)">© 2026 FONS LATENS · V0.4</span>
+    </div>
+  </div>
+</footer>
+</div>
+</div>
+
+<script src="assets/js/news-snapshot.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
